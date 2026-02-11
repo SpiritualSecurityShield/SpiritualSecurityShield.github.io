@@ -7,15 +7,19 @@
 
   <style>
     :root {
-      --bg: #1f1d21;
+      --bg: #1f1d21;          /* soft charcoal */
       --bg-alt: #26232a;
       --panel: #2c2830;
       --panel-soft: #332d37;
-      --text-main: #f4ebdd;
+      --text-main: #f4ebdd;   /* parchment */
       --text-soft: #d2c6b3;
-      --accent: #d4a373;
+      --accent: #d4a373;      /* muted copper-gold */
       --accent-soft: #e7bd84;
       --border-soft: rgba(244, 235, 221, 0.15);
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -27,17 +31,25 @@
       line-height: 1.6;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .page {
       max-width: 1120px;
       margin: 0 auto;
       padding: 18px 18px 60px;
     }
 
+    /* Header */
+
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 8px 0 10px;
+      gap: 12px;
+      padding: 8px 0 12px;
     }
 
     .brand {
@@ -59,6 +71,8 @@
       color: var(--accent-soft);
     }
 
+    /* Hero */
+
     .hero {
       display: flex;
       flex-wrap: wrap;
@@ -70,6 +84,7 @@
     .hero-text {
       flex: 1 1 320px;
       min-width: 270px;
+      padding-right: 8px;
     }
 
     .hero-kicker {
@@ -82,27 +97,54 @@
 
     .hero-text h1 {
       font-size: 2.4rem;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
+    }
+
+    .hero-sub {
+      font-size: 1.02rem;
+      color: var(--text-soft);
+      margin-bottom: 14px;
+    }
+
+    .hero-bullets {
+      font-size: 0.96rem;
+      color: var(--text-soft);
+      margin-bottom: 18px;
+    }
+
+    .hero-bullets span {
+      display: block;
     }
 
     .cta-row {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 14px;
     }
 
     .btn-primary {
+      display: inline-block;
       padding: 10px 24px;
-      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
       border-radius: 999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-soft));
       color: #261f16;
       font-weight: bold;
+      font-size: 0.98rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       border: none;
       cursor: pointer;
-      text-transform: uppercase;
       box-shadow: 0 0 22px rgba(228,192,135,0.4);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+
+    .cta-note {
+      font-size: 0.88rem;
+      color: var(--text-soft);
     }
 
     .hero-media {
@@ -115,215 +157,408 @@
     .hero-card {
       background: radial-gradient(circle at top, #3a313f 0, #26232a 60%);
       border-radius: 18px;
-      padding: 14px;
-      box-shadow: 0 0 24px rgba(0,0,0,0.6), 0 0 30px rgba(212,163,115,0.25);
       border: 1px solid var(--border-soft);
+      padding: 14px;
+      box-shadow:
+        0 0 24px rgba(0,0,0,0.6),
+        0 0 30px rgba(212,163,115,0.25);
       max-width: 380px;
     }
 
     .hero-card img {
       width: 100%;
-      border-radius: 12px;
       display: block;
+      border-radius: 12px;
     }
 
     .hero-caption {
-      text-align: center;
       margin-top: 8px;
       font-size: 0.85rem;
+      color: #d4c4ae;
+      text-align: center;
     }
+
+    /* Sections */
 
     .section {
       padding: 26px 4px 10px;
       border-top: 1px solid var(--border-soft);
     }
 
+    .section-inner {
+      max-width: 880px;
+      margin: 0 auto;
+    }
+
     .section h2 {
       font-size: 1.6rem;
+      margin: 0 0 10px;
       color: var(--accent-soft);
-      margin-bottom: 10px;
+    }
+
+    .section p {
+      margin: 0 0 10px;
+      color: var(--text-soft);
+      font-size: 0.98rem;
     }
 
     .columns-2 {
       display: flex;
       flex-wrap: wrap;
       gap: 24px;
+      margin-top: 10px;
     }
 
     .col {
       flex: 1 1 260px;
+      min-width: 240px;
     }
 
     .pill {
       display: inline-block;
       padding: 4px 10px;
+      font-size: 0.78rem;
       border-radius: 999px;
       border: 1px solid var(--border-soft);
-      font-size: 0.78rem;
       text-transform: uppercase;
       letter-spacing: 0.12em;
+      color: #cfc0a7;
       margin-bottom: 6px;
     }
+
+    ul {
+      margin: 6px 0 10px 18px;
+      padding: 0;
+      color: var(--text-soft);
+      font-size: 0.96rem;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    /* Founder */
 
     .founder-wrap {
       display: flex;
       flex-wrap: wrap;
       gap: 24px;
-      align-items: start;
+      align-items: flex-start;
+      margin-top: 14px;
+    }
+
+    .founder-img {
+      flex: 0 0 260px;
+      max-width: 280px;
     }
 
     .founder-img img {
       width: 100%;
+      display: block;
       border-radius: 14px;
       border: 1px solid var(--border-soft);
+      box-shadow: 0 0 22px rgba(0,0,0,0.7);
+    }
+
+    .founder-text {
+      flex: 1 1 260px;
+      min-width: 260px;
+    }
+
+    .founder-text p {
+      font-size: 0.97rem;
+    }
+
+    .founder-name {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: #e0c49b;
+    }
+
+    /* Bottom CTA */
+
+    .bottom-cta {
+      text-align: center;
+      padding: 26px 8px 6px;
+    }
+
+    .bottom-cta p {
+      font-size: 0.96rem;
+      color: var(--text-soft);
     }
 
     footer {
       text-align: center;
-      padding: 18px 4px;
+      padding: 18px 4px 4px;
       font-size: 0.8rem;
       color: #bbaea0;
     }
+
+    /* Responsive */
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .page {
+        padding-inline: 14px;
+      }
+    }
   </style>
 </head>
-
 <body>
   <div class="page">
-
+    <!-- Top bar -->
     <header>
       <div class="brand">Spiritual Security Shield™</div>
       <nav>
         <a href="#problem">Problem</a>
-        <a href="#product">Shielded Grimoire™</a>
+        <a href="#solution">Solution</a>
+        <a href="#product-preview">Preview</a>
         <a href="#why-now">Why Now</a>
         <a href="#founder">Founder</a>
+        <a href="#roadmap">Roadmap</a>
       </nav>
     </header>
 
+    <!-- Hero -->
     <section class="hero">
       <div class="hero-text">
         <div class="hero-kicker">Wellness Tech · Low-EMF · Spiritual Tools</div>
-        <h1>Technology that protects your energy.</h1>
+        <h1>Low-EMF technology for the awakening digital age.</h1>
         <p class="hero-sub">
-          Spiritual Security Shield™ creates low-EMF devices for users who feel overstimulated by
-          today’s digital world. The <strong>Shielded Grimoire™</strong> is our next-generation
-          spiritual e-reader designed to reduce digital noise and create a sanctuary for inner work.
+          Spiritual Security Shield™ creates low-EMF wellness devices for people who feel overloaded by the
+          always-on, always-emitting digital world. Our flagship device, the <strong>Shielded Grimoire™</strong>,
+          is a purpose-built spiritual e-reader designed to shield the mind, body, and spirit from digital noise
+          while supporting intentional, distraction-free learning.
         </p>
         <div class="hero-bullets">
-          <span>• Built for spiritually awakening and energetically sensitive users</span>
-          <span>• Crafted to reduce EMF, RF output & digital overwhelm</span>
-          <span>• A calm, dedicated device for spiritual study and wellness rituals</span>
+          <span>• Built for sensitive, spiritual, and awakening-aligned users.</span>
+          <span>• Focused on lowering EMF, RF output, and nervous-system overload.</span>
+          <span>• Designed as a calm, dedicated sanctuary device — not another attention-hungry screen.</span>
         </div>
 
         <div class="cta-row">
           <a
             class="btn-primary"
-            href="mailto:Spiritual.S.Shield3@gmail.com?subject=Shielded%20Grimoire%E2%84%A2%20Waitlist">
-            Join Waitlist
+            href="mailto:Spiritual.S.Shield3@gmail.com?subject=Shielded%20Grimoire%E2%84%A2%20Investor/Waitlist%20Inquiry&body=Hi%20Wendy,%0D%0A%0D%0AI'd%20love%20to%20learn%20more%20about%20the%20Shielded%20Grimoire%E2%84%A2%20and%20Spiritual%20Security%20Shield%E2%84%A2.%0D%0A%0D%0AName:%0D%0ARole%20(investor,%20partner,%20early%20user):%0D%0A">
+            Join Waitlist / Reach Out
           </a>
+          <div class="cta-note">
+            Concept stage · Seeking aligned investors, partners, and early adopters
+          </div>
         </div>
       </div>
 
       <div class="hero-media">
         <div class="hero-card">
           <img
-            src="images/E22BEE6D-01E8-454F-B702-2D93920551F7.png"
+            src="images/81BA8368-AE81-4A32-8D3A-B51671ACF3BF.png"
             alt="Founder artwork for Spiritual Security Shield"
           />
           <div class="hero-caption">
-            The world of Spiritual Security Shield™ — where mystical practice meets mindful technology.
+            Visual concept from the world of Spiritual Security Shield™ — where mindful hardware meets spiritual clarity.
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Problem -->
     <section class="section" id="problem">
-      <h2>The Problem We’re Solving</h2>
-      <div class="columns-2">
-        <div class="col">
-          <p>
-            The digital world is overwhelming — constant EMF exposure, nonstop notifications,
-            harsh light, and chaotic noise overstimulate the nervous system and disconnect people
-            from their intuition.
-          </p>
-          <ul>
-            <li>Chronic overstimulation & burnout</li>
-            <li>Energetic disruption for sensitive users</li>
-            <li>Difficulty focusing during spiritual work</li>
-            <li>No calm tech designed for spiritual wellness</li>
-          </ul>
-        </div>
-        <div class="col">
-          <p>
-            Spiritual Security Shield™ creates <strong>low-EMF, energy-aware devices</strong> that
-            act more like sanctuaries than screens, reducing harm while supporting grounding
-            and spiritual clarity.
-          </p>
-          <ul>
-            <li>Low-EMF hardware design</li>
-            <li>Monochrome gentle display</li>
-            <li>Offline-first for zero digital noise</li>
-            <li>Built for ritual work, study & calm focus</li>
-          </ul>
+      <div class="section-inner">
+        <h2>The Problem</h2>
+        <p>
+          Modern devices are built for engagement, not energetic wellbeing. Constant EMF exposure, radio-frequency
+          signals, harsh blue light, and nonstop notifications create an environment that is mentally and energetically
+          overwhelming — especially for sensitive and spiritually aware users.
+        </p>
+        <div class="columns-2">
+          <div class="col">
+            <div class="pill">User Pain</div>
+            <ul>
+              <li>Chronic mental fatigue and nervous-system overstimulation</li>
+              <li>Difficulty focusing during spiritual practice, journaling, or study</li>
+              <li>Sleep disruption and emotional dysregulation from device overuse</li>
+              <li>Feeling “buzzed,” anxious, or disconnected after screen time</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="pill">Market Gap</div>
+            <ul>
+              <li>No dedicated low-EMF spiritual device exists in the consumer market</li>
+              <li>Solutions focus on apps or behavior changes, not hardware redesign</li>
+              <li>Spiritual practitioners are improvising with mainstream tech not built for their needs</li>
+              <li>Rising EMF and digital wellness awareness with no aligned hardware solution</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="product">
-      <h2>Flagship Product: Shielded Grimoire™</h2>
-      <p>
-        The world’s first <strong>spiritual e-reader built for energetic wellbeing</strong>,
-        blending ancient practice with intentional modern technology.
-      </p>
-
-      <ul>
-        <li>Custom low-EMF hardware design</li>
-        <li>Pre-installed Grimoire database</li>
-        <li>User-built personal spellbook</li>
-        <li>Themes inspired by dusk, dawn & zodiac archetypes</li>
-        <li>Calm UI built for inner work, not overstimulation</li>
-      </ul>
+    <!-- Solution -->
+    <section class="section" id="solution">
+      <div class="section-inner">
+        <h2>The Solution: Shielded Grimoire™</h2>
+        <p>
+          The <strong>Shielded Grimoire™</strong> is a low-EMF, spiritually focused e-reader and knowledge system
+          built from the ground up to support calm, intentional inner work.
+        </p>
+        <div class="columns-2">
+          <div class="col">
+            <div class="pill">Hardware & Experience</div>
+            <ul>
+              <li>Low-EMF design philosophy with minimized wireless activity</li>
+              <li>Monochrome, eye-gentle display inspired by old-world grimoires</li>
+              <li>Offline-first architecture to reduce digital interference and noise</li>
+              <li>Simple, non-addictive UX that prioritizes focus over engagement</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="pill">Spiritual & Wellness Features</div>
+            <ul>
+              <li>Pre-installed Spiritual Security Shield™ Grimoire — a curated library of herbs, rituals, etymology, crystals, and energy work</li>
+              <li>Private “personal grimoire” space where users save entries, notes, and practices</li>
+              <li>Future support for guided breathwork, journaling prompts, and low-EMF frequency content</li>
+              <li>Theme modes inspired by dusk, dawn, parchment, and zodiac archetypes</li>
+            </ul>
+          </div>
+        </div>
+        <p>
+          Instead of asking people to abandon technology, the Shielded Grimoire™ offers a different kind of device:
+          one built to respect their energy, nervous system, and spiritual practice.
+        </p>
+      </div>
     </section>
 
+    <!-- Product Preview -->
+    <section class="section" id="product-preview">
+      <div class="section-inner">
+        <h2>Product Preview</h2>
+        <p>
+          Visual concepts already exist for the Shielded Grimoire™ device, brand system, and UI. These early explorations
+          demonstrate the aesthetic and experiential direction: modern but grounded, mystical but clear, spiritual but
+          approachable for wellness-oriented users.
+        </p>
+        <p style="font-size:0.9rem; color:var(--text-soft);">
+          (Additional concept art, UI wireframes, and hardware sketches are available in the internal pitch materials
+          and can be shared upon request.)
+        </p>
+      </div>
+    </section>
+
+    <!-- Why Now -->
     <section class="section" id="why-now">
-      <h2>Why Now</h2>
-      <p>
-        With spiritual awakening and digital burnout at an all-time high, users are actively
-        seeking healthier ways to engage with technology. Investors are looking for wellness-tech
-        that fills emerging gaps — and Spiritual Security Shield™ sits exactly at the intersection
-        of sacred practice and mindful hardware innovation.
-      </p>
+      <div class="section-inner">
+        <h2>Why Now</h2>
+        <ul>
+          <li>The global wellness and spiritual growth market continues to expand year over year.</li>
+          <li>EMF, radiation, and digital overstimulation concerns are increasingly mainstream topics.</li>
+          <li>Mindfulness and spiritual apps are popular — but they still live on overstimulating devices.</li>
+          <li>No major hardware player is building for low-EMF, spiritually aligned use cases.</li>
+        </ul>
+        <p>
+          Spiritual Security Shield™ is positioned at the intersection of <strong>wellness technology, conscious hardware,
+          and global spiritual awakening</strong> — a category with clear demand and very few specialized solutions.
+        </p>
+      </div>
     </section>
 
+    <!-- Founder -->
     <section class="section" id="founder">
-      <h2>Founder</h2>
-      <div class="founder-wrap">
-        <div class="founder-img">
-          <img
-            src="images/81BA8368-AE81-4A32-8D3A-B51671ACF3BF.png"
-            alt="Founder illustration for Spiritual Security Shield"
-          />
-        </div>
-        <div class="founder-text">
-          <p>
-            Spiritual Security Shield™ was created from lived experience — the need for spiritual
-            grounding, energetic clarity, and calm technology in a world that never quiets down.
-            As a practitioner who works with energy, intuition, ritual, and spiritual communication,
-            I designed this brand to support people who feel everything deeply.
-          </p>
-          <p>
-            The Shielded Grimoire™ is the device I wished already existed: a low-EMF sanctuary
-            for learning, ritual, and spiritual development without digital overwhelm.
-          </p>
+      <div class="section-inner">
+        <h2>Founder</h2>
+        <div class="founder-wrap">
+          <div class="founder-img">
+            <img
+              src="images/81BA8368-AE81-4A32-8D3A-B51671ACF3BF.png"
+              alt="Founder illustration for Spiritual Security Shield"
+            />
+          </div>
+          <div class="founder-text">
+            <p>
+              Spiritual Security Shield™ was born from lived experience at the edge of spiritual awakening and
+              digital burnout. As a spiritual practitioner who works closely with energy, ritual, intuition, and
+              inner healing, I’ve felt firsthand how draining and chaotic standard devices can be.
+            </p>
+            <p>
+              With a background in technology and a deep commitment to spiritual wellness, I saw an unmet need:
+              a dedicated, low-EMF device for spiritual study and practice that doesn’t leave users feeling
+              overstimulated, scattered, or disconnected from their bodies.
+            </p>
+            <p>
+              The Shielded Grimoire™ is the device I wished already existed — and now I’m building it for all the
+              sensitive, awakening souls who need calmer, safer ways to engage with technology.
+            </p>
+            <p class="founder-name">
+              — Wendy Walton, Founder of Spiritual Security Shield™
+            </p>
+          </div>
         </div>
       </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section class="section" id="roadmap">
+      <div class="section-inner">
+        <h2>Roadmap</h2>
+        <ul>
+          <li><strong>Q2 2026</strong> — Finalize app architecture, grimoire content model, and UX flows</li>
+          <li><strong>Q3 2026</strong> — Hardware exploration, low-EMF design research, and early prototyping</li>
+          <li><strong>Q4 2026</strong> — Closed beta concepts with a small group of aligned spiritual practitioners</li>
+          <li><strong>Q1 2027</strong> — Refine prototype, manufacturing research, and partner discussions</li>
+          <li><strong>Q2 2027</strong> — Pre-launch phase, expanded beta, and broader fundraising</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Current Need / CTA -->
+    <section class="bottom-cta">
+      <h2>What We’re Looking For</h2>
+      <p>
+        Spiritual Security Shield™ is currently in the concept and early architecture phase. The next step is to move
+        from vision to prototype — and that means partnering with people who see the same gap.
+      </p>
+      <p>
+        We are seeking:
+      </p>
+      <ul style="list-style: none; padding-left: 0; margin-top: 4px; color: var(--text-soft);">
+        <li>• Early investors aligned with spiritual wellness and mindful technology</li>
+        <li>• Hardware and EMF-conscious engineering collaborators</li>
+        <li>• Strategic partners in wellness, spiritual education, and product development</li>
+      </ul>
+      <p>
+        If this vision resonates, let’s talk.
+      </p>
+      <a
+        class="btn-primary"
+        href="mailto:Spiritual.S.Shield3@gmail.com?subject=Spiritual%20Security%20Shield%20-%20Investor%20Inquiry&body=Hi%20Wendy,%0D%0A%0D%0AI'd%20like%20to%20discuss%20Spiritual%20Security%20Shield%E2%84%A2%20and%20the%20Shielded%20Grimoire%E2%84%A2.%0D%0A%0D%0AName:%0D%0ARole:%0D%0A">
+        Start the Conversation
+      </a>
+      <p style="margin-top: 10px;">
+        Or email directly: <a href="mailto:Spiritual.S.Shield3@gmail.com">Spiritual.S.Shield3@gmail.com</a>
+      </p>
     </section>
 
     <footer>
       © 2026 Spiritual Security Shield™ · All Rights Reserved · GitHub:
-      <a href="https://github.com/SpiritualSecuritySheild">SpiritualSecuritySheild</a>
+      <a href="https://github.com/SpiritualSecuritySheild" target="_blank" rel="noopener">
+        SpiritualSecuritySheild
+      </a>
     </footer>
-
   </div>
 </body>
 </html>
