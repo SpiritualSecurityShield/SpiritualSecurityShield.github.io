@@ -1,110 +1,513 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spiritual Security Shield™</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spiritual Security Shield™ | Shielded Spellbook</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #0c0c0c;
-            color: #e8d7b9;
-            font-family: "Georgia", serif;
-            line-height: 1.6;
-        }
+  <style>
+    :root {
+      --bg: #070707;
+      --bg-alt: #11100f;
+      --text-main: #f4e5c9;
+      --text-soft: #cabca4;
+      --accent: #c79253;
+      --accent-soft: #e2b77b;
+      --border-soft: rgba(255, 222, 180, 0.18);
+    }
 
-        header {
-            text-align: center;
-            padding: 40px 20px;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-            letter-spacing: 2px;
-        }
+    body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at top, #1a1411 0, #070707 55%);
+      color: var(--text-main);
+      font-family: "Georgia", "Times New Roman", serif;
+      line-height: 1.6;
+    }
 
-        h2 {
-            text-align: center;
-            margin-top: 40px;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        .founder-img-container {
-            display: flex;
-            justify-content: center;
-            margin: 30px 0;
-        }
+    /* Layout */
 
-        .founder-img-container img {
-            width: 70%;
-            max-width: 600px;
-            border-radius: 12px;
-            border: 2px solid #c18f52;
-            box-shadow: 0 0 25px rgba(255, 210, 120, 0.4);
-        }
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 16px 18px 60px;
+    }
 
-        .section {
-            width: 85%;
-            max-width: 850px;
-            margin: 0 auto;
-            margin-bottom: 40px;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 2px 8px;
+    }
 
-        p {
-            font-size: 1.1rem;
-        }
+    .brand {
+      font-size: 1.1rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent-soft);
+    }
 
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            opacity: 0.6;
-            margin-top: 50px;
-        }
-    </style>
+    nav a {
+      font-size: 0.9rem;
+      margin-left: 16px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+    }
+
+    nav a:hover {
+      color: var(--accent-soft);
+    }
+
+    /* Hero */
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 28px;
+      padding: 32px 0 22px;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .hero-text {
+      flex: 1 1 320px;
+      min-width: 270px;
+      padding-right: 8px;
+    }
+
+    .hero-kicker {
+      font-size: 0.9rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #b69b7b;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.4rem;
+      margin: 0 0 10px;
+      text-shadow: 0 0 12px rgba(0,0,0,0.7);
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .hero-bullets {
+      font-size: 0.98rem;
+      color: var(--text-soft);
+      margin-bottom: 20px;
+    }
+
+    .hero-bullets span {
+      display: block;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      padding: 10px 22px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #c79253, #e2b77b);
+      color: #120f0d;
+      font-weight: bold;
+      font-size: 0.98rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 0 22px rgba(226,183,123,0.4);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.04);
+    }
+
+    .cta-note {
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .hero-media {
+      flex: 1 1 320px;
+      min-width: 260px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #241914 0, #090707 60%);
+      border-radius: 18px;
+      border: 1px solid var(--border-soft);
+      padding: 14px;
+      box-shadow:
+        0 0 25px rgba(0,0,0,0.9),
+        0 0 40px rgba(199,146,83,0.35);
+      max-width: 380px;
+    }
+
+    .hero-card img {
+      width: 100%;
+      display: block;
+      border-radius: 12px;
+    }
+
+    .hero-caption {
+      margin-top: 8px;
+      font-size: 0.85rem;
+      color: #b6a587;
+      text-align: center;
+    }
+
+    /* Sections */
+
+    .section {
+      padding: 26px 4px 10px;
+      border-top: 1px solid var(--border-soft);
+    }
+
+    .section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      margin: 0 0 10px;
+      color: var(--accent-soft);
+    }
+
+    .section p {
+      margin: 0 0 10px;
+      color: var(--text-soft);
+      font-size: 0.98rem;
+    }
+
+    .columns-2 {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 10px;
+    }
+
+    .col {
+      flex: 1 1 260px;
+      min-width: 240px;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 4px 10px;
+      font-size: 0.78rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #bba686;
+      margin-bottom: 6px;
+    }
+
+    ul {
+      margin: 6px 0 10px 18px;
+      padding: 0;
+      color: var(--text-soft);
+      font-size: 0.96rem;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    /* Founder */
+
+    .founder-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: flex-start;
+      margin-top: 14px;
+    }
+
+    .founder-img {
+      flex: 0 0 260px;
+      max-width: 280px;
+    }
+
+    .founder-img img {
+      width: 100%;
+      display: block;
+      border-radius: 14px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 0 22px rgba(0,0,0,0.9);
+    }
+
+    .founder-text {
+      flex: 1 1 260px;
+      min-width: 260px;
+    }
+
+    .founder-text p {
+      font-size: 0.97rem;
+    }
+
+    .founder-name {
+      margin-top: 8px;
+      font-size: 0.92rem;
+      color: #c9b290;
+    }
+
+    /* Bottom CTA */
+
+    .bottom-cta {
+      text-align: center;
+      padding: 26px 8px 6px;
+    }
+
+    .bottom-cta p {
+      font-size: 0.96rem;
+      color: var(--text-soft);
+    }
+
+    footer {
+      text-align: center;
+      padding: 18px 4px 4px;
+      font-size: 0.8rem;
+      color: #9b8b76;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 720px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+      }
+
+      nav {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .hero-text h1 {
+        font-size: 2.0rem;
+      }
+
+      .page {
+        padding-inline: 14px;
+      }
+    }
+  </style>
 </head>
-
 <body>
-
+  <div class="page">
+    <!-- Top bar -->
     <header>
-        <h1>Spiritual Security Shield™</h1>
-        <p>Tech × Spiritualism • Low-EMF Protection • Awakening Tools for the Soul</p>
+      <div class="brand">Spiritual Security Shield™</div>
+      <nav>
+        <a href="#problem">Problem</a>
+        <a href="#product">Product</a>
+        <a href="#why-now">Why Now</a>
+        <a href="#founder">Founder</a>
+      </nav>
     </header>
 
-    <h2>About the Founder</h2>
-
-    <div class="founder-img-container">
-        <img src="images/E22BEE6D-01E8-454F-B702-2D93920551F7.png"
-             alt="Founder of Spiritual Security Shield illustration">
-    </div>
-
-    <div class="section">
-        <p>
-        I created <strong>Spiritual Security Shield™</strong> with one mission: to protect awakening, sensitive, and energetically overloaded souls from the chaotic frequency of the digital world.  
-        Blending spiritual intuition with future-forward tech, my work is dedicated to designing low-EMF tools that shield the mind, body, and spirit—bringing clarity and calm where most people feel static, overwhelm, and noise.  
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-kicker">Tech × Spiritual Wellness</div>
+        <h1>Low-EMF spiritual tech for souls who feel everything.</h1>
+        <p class="hero-sub">
+          Spiritual Security Shield™ is building devices that act like firewalls for your energy —
+          shielding the mind, body, and spirit from the constant static of the digital world.
         </p>
+        <div class="hero-bullets">
+          <span>• Flagship device: <strong>Shielded Spellbook™</strong> — a low-EMF, grimoire-inspired e-reader.</span>
+          <span>• Designed for sensitive and awakening users who need calm, not more notifications.</span>
+        </div>
 
-        <p>
-        From the <strong>Shielded Spellbook™</strong> e-reader to my upcoming wearables and divination devices, everything I build honors ancient wisdom while embracing modern design.  
-        My path as a spiritual practitioner—rooted in energy work, candle magick, intuitive messages, and ritual healing—guides every layer of the brand.  
-        </p>
+        <div class="cta-row">
+          <a
+            class="btn-primary"
+            href="mailto:Spiritual.S.Shield3@gmail.com?subject=Shielded%20Spellbook%20Waitlist&body=Hi%20Wendy,%0D%0A%0D%0AI'd%20love%20to%20join%20the%20waitlist%20for%20the%20Shielded%20Spellbook%E2%84%A2.%0D%0A%0D%0AName:%0D%0AHow%20I%20plan%20to%20use%20it:%0D%0A">
+            Join Waitlist
+          </a>
+          <div class="cta-note">
+            Early concept stage · Gathering aligned users & partners
+          </div>
+        </div>
+      </div>
 
+      <div class="hero-media">
+        <div class="hero-card">
+          <img
+            src="images/E22BEE6D-01E8-454F-B702-2D93920551F7.png"
+            alt="Mystical founder workspace illustration for Spiritual Security Shield"
+          />
+          <div class="hero-caption">
+            Concept art from the world of Spiritual Security Shield™ — where mystical practice meets mindful hardware.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem & Solution -->
+    <section class="section" id="problem">
+      <div class="section-inner">
+        <h2>The Problem We’re Solving</h2>
+        <div class="columns-2">
+          <div class="col">
+            <div class="pill">The Problem</div>
+            <p>
+              The modern digital environment is built for engagement, not energetic wellbeing.
+              Constant EMF exposure, blue light, notifications, and algorithm-driven feeds create:
+            </p>
+            <ul>
+              <li>Chronic overwhelm and nervous system fatigue</li>
+              <li>Distraction and spiritual disconnection</li>
+              <li>Low-grade anxiety and mental fog</li>
+              <li>Environments that feel energetically “loud” for sensitive people</li>
+            </ul>
+          </div>
+          <div class="col">
+            <div class="pill">Our Approach</div>
+            <p>
+              Spiritual Security Shield™ builds <strong>low-EMF, spiritually-aligned devices</strong> that act like
+              calm, shielded spaces inside the chaos of the digital world.
+            </p>
+            <p>
+              Instead of more apps on the same overstimulating devices, we’re designing
+              <strong>dedicated hardware</strong> for reading, ritual, and reflection — intentionally quiet by design.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product -->
+    <section class="section" id="product">
+      <div class="section-inner">
+        <h2>Flagship Product: The Shielded Spellbook™</h2>
         <p>
-        Spiritual Security Shield™ is more than a company.  
-        It’s a sanctuary for those who feel everything, absorb everything, and are ready to reclaim their energy sovereignty in a world buzzing with invisible interference.
+          The Shielded Spellbook™ is a grimoire-inspired, low-EMF e-reader for spiritual work, study,
+          and inner transformation.
         </p>
-    </div>
+        <div class="columns-2">
+          <div class="col">
+            <ul>
+              <li>Low-EMF hardware philosophy and minimized wireless activity</li>
+              <li>Monochrome, eye-gentle interface inspired by old paper grimoires</li>
+              <li>Pre-installed <strong>Spiritual Security Shield Grimoire</strong> — a growing knowledge base of
+                  herbs, rituals, etymology, crystals, and energy work</li>
+              <li>Offline-first design to reduce digital noise and distraction</li>
+            </ul>
+          </div>
+          <div class="col">
+            <ul>
+              <li>User can build their own personal, encrypted “digital grimoire” from saved entries</li>
+              <li>Optional theme packs (e.g., Zodiac set, dusk/dawn reading modes)</li>
+              <li>Future integrations with shielded divination tools and ritual accessories</li>
+            </ul>
+          </div>
+        </div>
+        <p>
+          Current stage: concept, architecture, and content system designed; now seeking aligned partners,
+          advisors, and funding to move into hardware prototyping and software development.
+        </p>
+      </div>
+    </section>
+
+    <!-- Why Now -->
+    <section class="section" id="why-now">
+      <div class="section-inner">
+        <h2>Why Now</h2>
+        <ul>
+          <li>The global wellness market is booming, with spiritual and energetic wellness rapidly expanding.</li>
+          <li>EMF awareness, nervous system care, and “digital detox” interest are at an all-time high.</li>
+          <li>There is no dedicated hardware designed specifically for spiritual practice and energetic sensitivity.</li>
+          <li>We’re at the intersection of three rising spaces: spiritual practice, mindfulness tech, and EMF-conscious design.</li>
+        </ul>
+        <p>
+          Spiritual Security Shield™ aims to define a new category: <strong>spiritual security technology</strong> —
+          tools that support spiritual resilience and energetic clarity in an increasingly connected world.
+        </p>
+      </div>
+    </section>
+
+    <!-- Founder -->
+    <section class="section" id="founder">
+      <div class="section-inner">
+        <h2>About the Founder</h2>
+        <div class="founder-wrap">
+          <div class="founder-img">
+            <img
+              src="images/E22BEE6D-01E8-454F-B702-2D93920551F7.png"
+              alt="Founder of Spiritual Security Shield in mystical workspace"
+            />
+          </div>
+          <div class="founder-text">
+            <p>
+              I founded <strong>Spiritual Security Shield™</strong> because I’ve lived what this brand is built for:
+              being highly sensitive in a world that never turns off. As a spiritual practitioner, I work with
+              energy, ritual, candles, and intuitive guidance. As a technologist, I understand how our devices,
+              networks, and frequencies can quietly erode our inner calm.
+            </p>
+            <p>
+              This company is my way of fusing those two worlds — using thoughtful, low-EMF hardware and intentional
+              design to give sensitive and awakening souls a safe, grounded place to read, learn, and reconnect to
+              themselves.
+            </p>
+            <p class="founder-name">
+              — Wendy Walton, Founder of Spiritual Security Shield™
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom CTA -->
+    <section class="bottom-cta">
+      <h2>Interested in the next phase?</h2>
+      <p>
+        I’m currently refining the concept, architecture, and content and looking for aligned investors,
+        hardware partners, and early users who resonate deeply with this mission.
+      </p>
+      <a
+        class="btn-primary"
+        href="mailto:Spiritual.S.Shield3@gmail.com?subject=Shielded%20Spellbook%20Waitlist&body=Hi%20Wendy,%0D%0A%0D%0AI'd%20love%20to%20join%20the%20waitlist%20for%20the%20Shielded%20Spellbook%E2%84%A2%20or%20explore%20collaboration.%0D%0A%0D%0AName:%0D%0ARole%20(investor,%20partner,%20early%20user):%0D%0A">
+        Join Waitlist / Reach Out
+      </a>
+      <p style="margin-top:10px;">
+        Or email directly: <a href="mailto:Spiritual.S.Shield3@gmail.com">Spiritual.S.Shield3@gmail.com</a>
+      </p>
+    </section>
 
     <footer>
-        © Spiritual Security Shield™ — All Rights Reserved
+      © 2026 Spiritual Security Shield™ · All Rights Reserved · GitHub: 
+      <a href="https://github.com/SpiritualSecuritySheild" target="_blank" rel="noopener">
+        SpiritualSecuritySheild
+      </a>
     </footer>
-
+  </div>
 </body>
 </html>
